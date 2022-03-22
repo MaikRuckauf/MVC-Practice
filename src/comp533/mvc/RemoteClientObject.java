@@ -1,12 +1,9 @@
 package comp533.mvc;
 
-import java.rmi.RemoteException;
 import java.util.List;
 import java.util.Map;
 
 public class RemoteClientObject extends gradingTools.comp533s19.assignment0.AMapReduceTracer implements RemoteClientObjectInt {
-
-	//Map<String, Integer> clientMap = null;
 	
 	@Override
 	public Map<String, Integer> clientMapper(final List<KeyValue<String, Integer>> list) {
@@ -17,13 +14,13 @@ public class RemoteClientObject extends gradingTools.comp533s19.assignment0.AMap
 		return clientMap;
 	}
 	@Override
-	public synchronized void quitObject() throws RemoteException {
+	public synchronized void quitObject() {
 		traceQuit();
 		this.synchronizedNotify();
 		
 	}
 	@Override
-	public synchronized void clientWait() throws RemoteException {
+	public synchronized void clientWait() {
 		try {
 			this.synchronizedWait();
 		} catch (InterruptedException e) {

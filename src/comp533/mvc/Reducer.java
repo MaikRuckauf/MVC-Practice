@@ -12,7 +12,7 @@ public class Reducer extends gradingTools.comp533s19.assignment0.AMapReduceTrace
 	@Override
 	public Map<String, Integer> reduce(final List<KeyValue<String, Integer>> list) {
 		// TODO Auto-generated method stub
-		final Map<String, Integer> tokenMap = new HashMap<String, Integer>();
+		final HashMap<String, Integer> tokenMap = new HashMap<String, Integer>();
 		for (KeyValue<String, Integer> word : list) {
 			tokenMap.put(word.getKey(), tokenMap.getOrDefault(word.getKey(), 0) + word.getValue());
 		}

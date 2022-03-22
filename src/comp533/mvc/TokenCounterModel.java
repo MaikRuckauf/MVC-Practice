@@ -176,7 +176,6 @@ public class TokenCounterModel extends gradingTools.comp533s19.assignment0.AMapR
 		idleClientStack.push(client);
 		traceRegister(client);
 		reduction();
-		
 	}
 	@Override
 	public void reduction() {

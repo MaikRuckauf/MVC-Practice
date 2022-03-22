@@ -17,8 +17,6 @@ public interface TokenCounterModelInt {
 
 	public BlockingQueue<KeyValue<String, Integer>> getKeyValueQueue();
 	public List<LinkedList<KeyValue<String, Integer>>> getReductionQueueList(); // something about a linkedList
-	public Joiner joiner = new Joiner(0); // this needs to be an interface
-	public Barrier barrier = new Barrier(0);
 	public Barrier getBarrier();
 	public Joiner getJoiner();
 	public List<Slave> getSlaveList();

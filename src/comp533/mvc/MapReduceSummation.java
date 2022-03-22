@@ -9,7 +9,6 @@ public class MapReduceSummation extends gradingTools.comp533s19.assignment0.AMap
 
 	@Override
 	public List<KeyValue<String, Integer>> map(final List<String> list) {
-		// TODO Auto-generated method stub
 		final List<KeyValue<String, Integer>> tokenList = new ArrayList<KeyValue<String, Integer>>();
 		for (String word : list) {
 			final KeyValue<String, Integer> keyVal = new KeyValue<String, Integer>("ResultKey", Integer.parseInt(word));

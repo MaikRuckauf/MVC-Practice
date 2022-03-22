@@ -41,7 +41,9 @@ public class Slave extends gradingTools.comp533s19.assignment0.AMapReduceTracer 
 				}
 				else {
 					try {
+						traceRemoteList(slaveList);
 						clientMap = remoteClient.clientMapper(slaveList);
+						traceRemoteResult(clientMap);
 					} catch (RemoteException e) {
 						e.printStackTrace();
 					}
@@ -66,7 +68,9 @@ public class Slave extends gradingTools.comp533s19.assignment0.AMapReduceTracer 
 				}
 				else {
 					try {
+						traceRemoteList(slaveList);
 						clientMap = remoteClient.clientMapper(slaveList);
+						traceRemoteResult(clientMap);
 					} catch (RemoteException e) {
 						e.printStackTrace();
 					}
@@ -79,10 +83,16 @@ public class Slave extends gradingTools.comp533s19.assignment0.AMapReduceTracer 
 				}
 				final JoinerInt joiner = model.getJoiner();
 				joiner.finished();
+				try {
+					waits();
+				} catch (Exception e) {
+					this.traceQuit();
+					break;
+				}
 			}
-		} catch (Exception e) {
+		} catch (InterruptedException e) {
 			e.printStackTrace();
-			traceQuit();
+			this.traceQuit();
 		}
 	}
 	
